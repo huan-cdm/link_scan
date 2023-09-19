@@ -25,4 +25,16 @@ case "${1}" in
     rm -rf ./dicc.txt
     ;;
 
+    #过滤白名单文件
+    filterwhite)
+    white_result=`cat ./dicc.txt | grep $2`
+    echo "$white_result"
+    ;;
+
+    #过滤白名单文件删除多余的空行
+    filterwhiteline)
+    awk 'NF' ./dicc.txt > ./dicc1.txt
+    rm -rf ./dicc.txt
+    ;;
+
 esac
